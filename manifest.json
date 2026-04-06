@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Focus Blocker",
+  "version": "1.0.0",
+  "description": "Blocks configured domains during scheduled times.",
+  "permissions": [
+    "alarms",
+    "declarativeNetRequestWithHostAccess"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Focus Blocker",
+    "default_popup": "popup.html"
+  }
+}
