@@ -14,7 +14,7 @@ Simple Chrome extension that blocks configured websites during set days and time
 ```json
 [
   {
-    "domain": "linkedin.com",
+    "domain": "example.com",
     "days": ["mon", "tue", "wed", "thu", "fri"],
     "start": "08:00",
     "end": "17:00"
@@ -27,3 +27,6 @@ Simple Chrome extension that blocks configured websites during set days and time
 - `domain` can be a bare domain like `google.com` or a full URL like `https://www.google.com/`.
 - Subdomains and all paths are blocked too.
 - Redirect page (`REDIRECT_URL`) can be configured in `background.json`.
+
+## Example
+<img width="310" height="443" alt="image" src="https://github.com/user-attachments/assets/2f0f71ae-1161-408d-a4d5-f85ee0f52a3e" />
