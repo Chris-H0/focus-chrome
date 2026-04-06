@@ -1,0 +1,14 @@
+[
+  {
+    "domain": "https://www.example.com/",
+    "days": ["mon", "tue", "wed", "thu", "fri"],
+    "start": "07:00",
+    "end": "17:00"
+  },
+  {
+    "domain": "https://www.example1.com/",
+    "days": ["sat", "sun"],
+    "start": "07:00",
+    "end": "17:00"
+  }
+]
