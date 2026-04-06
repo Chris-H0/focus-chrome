@@ -24,5 +24,6 @@ Simple Chrome extension that blocks configured websites during set days and time
 
 ## Notes
 
-- `domain` can be a bare domain like `linkedin.com` or a full URL like `https://www.linkedin.com/`.
+- `domain` can be a bare domain like `google.com` or a full URL like `https://www.google.com/`.
 - Subdomains and all paths are blocked too.
+- Redirect page (`REDIRECT_URL`) can be configured in `background.json`.
