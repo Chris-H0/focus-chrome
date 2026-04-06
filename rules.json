@@ -22,5 +22,11 @@
     "days": ["mon", "tue", "wed", "thu", "fri"],
     "start": "07:00",
     "end": "17:00"
+  },
+  {
+    "domain": "https://www.youtube.com/",
+    "days": ["mon", "tue", "wed", "thu", "fri"],
+    "start": "07:00",
+    "end": "11:00"
   }
 ]
