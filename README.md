@@ -6,8 +6,10 @@ Simple Chrome extension that blocks configured websites during set days and time
 
 1. Edit `rules.json`.
 2. Add one rule per domain.
-3. Load this folder in Chrome with `chrome://extensions` -> `Load unpacked`.
-4. Reload the extension after changing `rules.json`.
+3. Open `chrome://extensions`
+4. Turn on Developer mode
+5. Load this folder with -> `Load unpacked`.
+6. Reload the extension after changing `rules.json`.
 
 ## Rule format
 
@@ -29,4 +31,5 @@ Simple Chrome extension that blocks configured websites during set days and time
 - Redirect page (`REDIRECT_URL`) can be configured in `background.json`.
 
 ## Example
+
 <img width="310" height="443" alt="image" src="https://github.com/user-attachments/assets/2f0f71ae-1161-408d-a4d5-f85ee0f52a3e" />
