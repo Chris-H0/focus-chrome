@@ -1,14 +1,39 @@
+  // {
+  //   "domain": ## Domain to block
+  //   "days": ## Days blocking active ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+  //   "start": ## Time blocking starts
+  //   "end": ## Time blocking ends
+  // }
+
 [
   {
-    "domain": "https://www.example.com/",
+    "domain": "https://www.linkedin.com/",
     "days": ["mon", "tue", "wed", "thu", "fri"],
     "start": "07:00",
     "end": "17:00"
   },
   {
-    "domain": "https://www.example1.com/",
-    "days": ["sat", "sun"],
+    "domain": "https://www.instagram.com/",
+    "days": ["mon", "tue", "wed", "thu", "fri"],
     "start": "07:00",
     "end": "17:00"
+  },
+  {
+    "domain": "https://x.com/",
+    "days": ["mon", "tue", "wed", "thu", "fri"],
+    "start": "07:00",
+    "end": "17:00"
+  },
+  {
+    "domain": "https://www.reddit.com/",
+    "days": ["mon", "tue", "wed", "thu", "fri"],
+    "start": "07:00",
+    "end": "17:00"
+  },
+  {
+    "domain": "https://www.youtube.com/",
+    "days": ["mon", "tue", "wed", "thu", "fri"],
+    "start": "07:00",
+    "end": "11:00"
   }
 ]
