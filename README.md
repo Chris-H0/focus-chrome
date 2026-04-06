@@ -1,4 +1,4 @@
-# Focus Blocker
+# Focus Chrome
 
 Simple Chrome extension that blocks configured websites during set days and times, then redirects to https://www.google.com/.
 
