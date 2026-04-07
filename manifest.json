@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "description": "Blocks configured domains during scheduled times.",
   "permissions": [
+    "alarms",
+    "declarativeNetRequestWithHostAccess",
     "webNavigation"
   ],
   "host_permissions": [

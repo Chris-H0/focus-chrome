@@ -62,6 +62,41 @@ export function isRuleActive(rule, now = new Date()) {
   return currentMinutes >= rule.startMinutes || currentMinutes < rule.endMinutes;
 }
 
+export function getActiveRules(rules, now = new Date()) {
+  return rules.filter((rule) => isRuleActive(rule, now));
+}
+
+export function getNextRuleBoundary(rules, now = new Date()) {
+  let nextBoundary = null;
+
+  for (const rule of rules) {
+    for (let offset = 0; offset < 8; offset += 1) {
+      const candidateDate = new Date(now);
+      candidateDate.setHours(0, 0, 0, 0);
+      candidateDate.setDate(candidateDate.getDate() + offset);
+
+      if (!rule.days.includes(DAY_NAMES[candidateDate.getDay()])) {
+        continue;
+      }
+
+      for (const minutes of [rule.startMinutes, rule.endMinutes]) {
+        const boundary = new Date(candidateDate);
+        boundary.setHours(Math.floor(minutes / 60), minutes % 60, 0, 0);
+
+        if (boundary <= now) {
+          continue;
+        }
+
+        if (!nextBoundary || boundary < nextBoundary) {
+          nextBoundary = boundary;
+        }
+      }
+    }
+  }
+
+  return nextBoundary;
+}
+
 export function isHttpUrl(url) {
   return typeof url === "string" && (url.startsWith("http://") || url.startsWith("https://"));
 }
