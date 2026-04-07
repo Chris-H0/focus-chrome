@@ -62,6 +62,20 @@ export function isRuleActive(rule, now = new Date()) {
   return currentMinutes >= rule.startMinutes || currentMinutes < rule.endMinutes;
 }
 
+export function isHttpUrl(url) {
+  return typeof url === "string" && (url.startsWith("http://") || url.startsWith("https://"));
+}
+
+export function urlMatchesRule(url, rule) {
+  const hostname = getNormalizedHostname(url);
+
+  if (!hostname) {
+    return false;
+  }
+
+  return hostname === rule.domain || hostname.endsWith(`.${rule.domain}`);
+}
+
 export function formatDays(days) {
   return days
     .map((day) => day.charAt(0).toUpperCase() + day.slice(1))
@@ -94,6 +108,18 @@ function normalizeDomain(value) {
   }
 
   return domain;
+}
+
+function getNormalizedHostname(url) {
+  if (!isHttpUrl(url)) {
+    return null;
+  }
+
+  try {
+    return normalizeDomain(new URL(url).hostname);
+  } catch {
+    return null;
+  }
 }
 
 function normalizeDays(value) {
