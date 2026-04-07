@@ -1,7 +1,9 @@
-import { domainToRegex, getValidRules, isRuleActive } from "./shared.js";
+import { getValidRules, isRuleActive } from "./shared.js";
 
 const ALARM_NAME = "refresh-blocking-rules";
 const REDIRECT_URL = "https://www.google.com/";
+let hasInitialized = false;
+let refreshPromise = null;
 
 chrome.runtime.onInstalled.addListener(() => {
   void initialize();
@@ -20,11 +22,30 @@ chrome.alarms.onAlarm.addListener((alarm) => {
 void initialize();
 
 async function initialize() {
+  if (hasInitialized) {
+    return;
+  }
+
+  hasInitialized = true;
   chrome.alarms.create(ALARM_NAME, { periodInMinutes: 1 });
   await refreshBlockingRules();
 }
 
 async function refreshBlockingRules() {
+  if (refreshPromise) {
+    return refreshPromise;
+  }
+
+  refreshPromise = refreshBlockingRulesInner();
+
+  try {
+    await refreshPromise;
+  } finally {
+    refreshPromise = null;
+  }
+}
+
+async function refreshBlockingRulesInner() {
   try {
     const rules = await getValidRules();
     const activeRules = rules.filter((rule) => isRuleActive(rule));
@@ -42,7 +63,7 @@ async function refreshBlockingRules() {
           }
         },
         condition: {
-          regexFilter: domainToRegex(rule.domain),
+          requestDomains: [rule.domain],
           resourceTypes: ["main_frame"]
         }
       }))

@@ -62,11 +62,6 @@ export function isRuleActive(rule, now = new Date()) {
   return currentMinutes >= rule.startMinutes || currentMinutes < rule.endMinutes;
 }
 
-export function domainToRegex(domain) {
-  const escapedDomain = domain.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  return `^https?:\\/\\/([^.]+\\.)*${escapedDomain}(?:[:\\/]|$)`;
-}
-
 export function formatDays(days) {
   return days
     .map((day) => day.charAt(0).toUpperCase() + day.slice(1))
