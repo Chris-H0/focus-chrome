@@ -34,3 +34,4 @@ Simple Chrome extension that blocks configured websites during set days and time
 ## Example
 
 <img width="310" height="443" alt="image" src="https://github.com/user-attachments/assets/2f0f71ae-1161-408d-a4d5-f85ee0f52a3e" />
+<img width="312" height="443" alt="image" src="https://github.com/user-attachments/assets/7b197929-b5f3-451f-8ece-6aa9db91569e" />
